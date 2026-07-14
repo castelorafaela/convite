@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+    linear-gradient(
+        rgba(255,182,193,0.55),
+        rgba(255,77,109,0.45)
+    ),
+    url("rafa.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card{
+    width: 650px;
+    max-width: 90%;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+
+    padding: 40px;
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.20);
+
+    animation: aparecer 1s ease;
+}
+
+h1{
+    color: #d6336c;
+    font-size: 2.3rem;
+    margin-bottom: 25px;
+}
+
+p{
+    color: #555;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+select{
+    margin-top: 15px;
+    padding: 12px 20px;
+
+    border: 2px solid #ffb3c1;
+    border-radius: 15px;
+
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+select:hover{
+    transform: scale(1.03);
+}
+
+button{
+    padding: 14px 28px;
+    border: none;
+    border-radius: 20px;
+
+    font-size: 1rem;
+    cursor: pointer;
+
+    transition: .3s;
+    margin: 15px 10px;
+}
+
+#sim{
+    background: linear-gradient(
+        45deg,
+        #ff4d6d,
+        #ff758f
+    );
+
+    color: white;
+    font-weight: bold;
+}
+
+#sim:hover{
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(255,77,109,.4);
+}
+
+#nao{
+    background: #ececec;
+    color: #444;
+}
+
+#resultado{
+    margin-top: 25px;
+    color: #d6336c;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.coracao{
+    position: absolute;
+    top: -100px;
+    pointer-events: none;
+
+    animation: cair linear infinite;
+}
+
+@keyframes cair{
+    0%{
+        transform:
+        translateY(-100px)
+        rotate(0deg);
+
+        opacity: 0;
+    }
+
+    20%{
+        opacity: 1;
+    }
+
+    100%{
+        transform:
+        translateY(110vh)
+        rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform:
+        translateY(40px)
+        scale(.9);
+    }
+
+    to{
+        opacity: 1;
+        transform:
+        translateY(0)
+        scale(1);
+    }
+}

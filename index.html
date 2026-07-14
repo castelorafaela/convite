@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite Especial ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:
+    linear-gradient(rgba(255,192,203,0.65),
+    rgba(255,0,0,0.35)),
+    url("rafa.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+.card{
+    background:rgba(255,255,255,0.90);
+    padding:35px;
+    width:600px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,0.3);
+}
+
+h1{
+    color:#d6336c;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:20px;
+    color:#444;
+    line-height:1.6;
+}
+
+select{
+    margin-top:15px;
+    padding:10px;
+    border-radius:15px;
+    border:1px solid #ddd;
+    font-size:16px;
+}
+
+button{
+    margin-top:25px;
+    padding:12px 25px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.3s;
+}
+
+#sim{
+    background:#ff4d6d;
+    color:white;
+}
+
+#nao{
+    background:#ddd;
+}
+
+#resultado{
+    margin-top:20px;
+    font-size:22px;
+    color:#d6336c;
+    font-weight:bold;
+}
+
+.coracao{
+    position:absolute;
+    color:red;
+    animation:cair linear infinite;
+}
+
+@keyframes cair{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+    <!-- Troque pelo link de uma música em mp3 -->
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+
+<h1>💖 Convite Oficial 💖</h1>
+
+<p>
+Matheus Gostosão, você acaba de receber um convite extremamente raro:
+a oportunidade de sair com a mulher mais gata, mais linda,
+mais incrível e mais divertida de todas... a própria <b>Rafa Castelo</b>. 😌✨
+</p>
+
+<br>
+
+<p>
+Que tal escolher um sábado ou domingo para um encontro?
+Pode ser no <b>Boteco Curitiba</b>, no <b>Janela</b>
+ou em algum barzinho da Prudente. 🍻❤️
+</p>
+
+<select id="data">
+    <option>Escolha uma data...</option>
+    <option>Sábado deste mês</option>
+    <option>Domingo deste mês</option>
+    <option>Sábado do próximo mês</option>
+    <option>Domingo do próximo mês</option>
+</select>
+
+<br>
+
+<button id="sim" onclick="aceitou()">
+ACEITO SAIR COM A MAIS LINDA ❤️
+</button>
+
+<button id="nao">
+Não 😢
+</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<script>
+function aceitou(){
+
+let contagem = 5;
+
+document.getElementById("resultado").innerHTML =
+"Prepare-se... ❤️";
+
+let timer = setInterval(() =>{
+
+document.getElementById("resultado").innerHTML =
+"Encontro confirmado em " + contagem + "...";
+
+contagem--;
+
+if(contagem < 0){
+clearInterval(timer);
+
+document.getElementById("resultado").innerHTML =
+`
+🎉 VOCÊ ACABOU DE MARCAR UM ENCONTRO COM A RAFA! 🎉
+<br><br>
+Agora tire uma captura de tela e envie para ela imediatamente! ❤️📸
+`;
+}
+
+},1000);
+
+}
+
+// botão não fugindo
+const nao = document.getElementById("nao");
+
+nao.addEventListener("mouseover",()=>{
+
+const x = Math.random() *
+(window.innerWidth-150);
+
+const y = Math.random() *
+(window.innerHeight-80);
+
+nao.style.position="absolute";
+nao.style.left=x+"px";
+nao.style.top=y+"px";
+
+});
+
+// corações caindo
+for(let i=0;i<25;i++){
+
+let c = document.createElement("div");
+
+c.innerHTML="❤️";
+c.classList.add("coracao");
+
+c.style.left=Math.random()*100+"vw";
+c.style.fontSize=
+(Math.random()*20+20)+"px";
+
+c.style.animationDuration=
+(Math.random()*5+4)+"s";
+
+document.body.appendChild(c);
+
+}
+</script>
+
+</body>
+</html>
